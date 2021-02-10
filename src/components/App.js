@@ -1,6 +1,14 @@
+import React from "react";
+import NavBar from "./NavBar";
+import InventoryControl from "./AppChildren/InventoryControl";
+
+
 function App() {
   return (
-    <h1>placeholder</h1>
+    <>
+      <NavBar />
+      <InventoryControl />
+    </>
   );
 }
 
