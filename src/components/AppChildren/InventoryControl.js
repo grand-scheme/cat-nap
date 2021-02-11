@@ -18,13 +18,24 @@ class InventoryControl extends React.Component {
 //     }));
   }
 
-
+  //this is our button to add a new item to be sold
   render(){
-  // function InventoryControl(){ // placeholder
+    let currentlyVisibleState = null;
+    let AddItemButton = null;
+    if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <newItemForm />;
+    } else {
+      currentlyVisibleState = <ItemList />;
+      addItemButton = <button onClick={this.handleClick}>Add item to List</button>;
+    }
+
+    
     return (
       <>
-      <h1>Inventory placeholder</h1>
-      <Item />
+      {currentlyVisibleState}
+      {addItemButton}
+      // <h1>Inventory placeholder</h1>
+      // <Item />
       </>
     );
   }
