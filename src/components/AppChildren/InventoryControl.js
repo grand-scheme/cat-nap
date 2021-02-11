@@ -2,7 +2,7 @@ import React from 'react';
 import Item from './InventoryControlChildren/Item';
 
 class InventoryControl extends React.Component {
-
+//this is a constructor to the class component and the only place to define default state
   constructor(props) {
     super(props);
     this.state = {
