@@ -1,7 +1,8 @@
 import React from "react";
 import { v4 } from 'uuid';
-
-function NewItemForm(){
+import PropTypes from "prop-types";
+//pass in props otherwise newitemform won't have access to props from itemcontrol
+function NewItemForm(props){
   return (
     <React.Fragment>
       <form onSubmit={handleNewItemFormSubmission}>
@@ -29,16 +30,22 @@ function NewItemForm(){
     </React.Fragment>
   );
 }
-
+//this isn't a class component so we cant use .this
 function NewItemForm(){
   function handleNewItemFormSubmission(event) {
     event.preventDefault();
-    console.log(event.target.name.value);
-    console.log(event.target.price.value);
-    console.log(event.target.availability.value);
-    console.log(event.target.size.value);
-    console.log(event.target.description.value);
+    props.onNewItemCreation({
+    name:event.target.name.value,
+    price:event.target.price.value,
+    availability:event.target.availability.value,
+    size:event.target.size.value,
+    description:event.target.description.value,
+    id: v4()
+    });
   }
 }
+NewItemForm.propTypes = {
+  onNewItemCreation: PropTypes.func
+};
 
 export default NewItemForm;

@@ -8,7 +8,6 @@ class InventoryControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false, //this is the derfault state of our application
-//       masterItemList: []
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -19,13 +18,21 @@ class InventoryControl extends React.Component {
     }));
   }
 
+  handleAddingNewItemToList = (newItem) => {
+    const newMasterItemList = this.state.masterItemList.concat(newItem);
+    this.setState({
+      masterItemList: newMasterItemList,
+      formVisibleOnPage: false
+    });
+  }
+
   //this is our button to add a new item to be sold
   //This is our conditional rendering (what should be rendered) and it is our local state
   render(){
     let currentlyVisibleState = null;
     let AddItemButton = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <newItemForm />;
+      currentlyVisibleState = <newItemForm onNewItemCreation={this.handleAddingNewItemToList} />;
     } else {
       currentlyVisibleState = <Item />;
       //click handler to JSX
