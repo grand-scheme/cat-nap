@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './InventoryControlChildren/Item';
+import NewitemForm from './InventoryControlChildren/NewItemForm';
 
 class InventoryControl extends React.Component {
 //this is a constructor to the class component and the only place to define default state
@@ -26,7 +27,7 @@ class InventoryControl extends React.Component {
     if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <newItemForm />;
     } else {
-      currentlyVisibleState = <ItemList />;
+      currentlyVisibleState = <Item />;
       //click handler to JSX
       addItemButton = <button onClick={this.handleClick}>Add item to List</button>;
     }

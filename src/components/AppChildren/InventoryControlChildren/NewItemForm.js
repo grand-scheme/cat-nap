@@ -30,4 +30,15 @@ function NewItemForm(){
   );
 }
 
+function NewItemForm(){
+  function handleNewItemFormSubmission(event) {
+    event.preventDefault();
+    console.log(event.target.name.value);
+    console.log(event.target.price.value);
+    console.log(event.target.availability.value);
+    console.log(event.target.size.value);
+    console.log(event.target.description.value);
+  }
+}
+
 export default NewItemForm;
