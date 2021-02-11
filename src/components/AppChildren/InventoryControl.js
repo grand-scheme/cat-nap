@@ -36,14 +36,14 @@ class InventoryControl extends React.Component {
     } else {
       currentlyVisibleState = <Item />;
       //click handler to JSX
-      addItemButton = <button onClick={this.handleClick}>Add item to List</button>;
+      AddItemButton = <button onClick={this.handleClick}>Add item to List</button>;
     }
 
     
     return (
       <>
       {currentlyVisibleState}
-      {addItemButton}
+      {AddItemButton}
       // <h1>Inventory placeholder</h1>
       // <Item />
       </>
